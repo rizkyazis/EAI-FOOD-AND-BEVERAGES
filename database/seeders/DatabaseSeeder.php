@@ -34,6 +34,14 @@ class DatabaseSeeder extends Seeder
             'drink',
             'food'];
 
+        $image = ['gadogado.jpg',
+            'esbuah.jpg',
+            'nasigoreng.jpg',
+            'ayamserundeng.jpg',
+            'salmon.jpg',
+            'milkshake.jpg',
+            'matasapi.jpg'];
+
         $description = ['Gado-gado (Indonesian or Betawi) is an Indonesian salad of slightly boiled, blanched or steamed vegetables and hard-boiled eggs, boiled potato, fried tofu and tempeh, and lontong (rice wrapped in a banana leaf), served with a peanut sauce dressing.',
             'Es buah is an Indonesian iced fruit cocktail dessert. This cold and sweet beverage is made of diced fruits, such as honeydew, cantaloupe, pineapple, papaya, squash, jackfruit and kolang kaling (Arenga pinnata fruit), mixed with shaved ice or ice cubes, and sweetened with liquid sugar or syrup.',
             'Nasi goreng (English pronunciation: /ˌnɑːsi ɡɒˈrɛŋ/), literally meaning "fried rice" in both the Indonesian and Malay languages, is an Indonesian rice dish with pieces of meat and vegetables added. It can refer simply to fried pre-cooked rice, a meal including stir fried rice in a small amount of cooking oil or margarine, typically spiced with kecap manis (sweet soy sauce), shallot, garlic, ground shrimp paste, tamarind and chilli and accompanied by other ingredients, particularly egg, chicken and prawns. There is also another kind of nasi goreng which is made with ikan asin (salted dried fish) which is also popular across Indonesia.',
@@ -54,6 +62,7 @@ class DatabaseSeeder extends Seeder
             $input = new Menu();
             $input->name = $menu[$i];
             $input->type = $type[$i];
+            $input->image = $image[$i];
             $input->description = $description[$i];
             $input->price = $price[$i];
             $input->category_id = $i+1;

@@ -20,23 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5860a1df-122e-45be-b2f2-765ea81f07d2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/menu/ayamserundeng.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/menu/esbuah.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/menu/gadogado.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/menu/matasapi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/menu/milkshake.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/menu/nasigoreng.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/menu/salmon.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Chef.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ChefRole.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MenuIngredients.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MenuIngredients.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Waiter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/WaiterRole.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/MenuController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_121319_create_menus_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_121319_create_menus_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_121718_create_chef_roles_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_121814_create_chefs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_122852_create_waiter_roles_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_122901_create_waiters_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_132255_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_132255_create_orders_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,9 +162,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images/menu" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Works\EAI\EAI-FOOD-AND-BEVERAGES\public\images\menu" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -189,7 +189,7 @@
       <workItem from="1606115037032" duration="4541000" />
       <workItem from="1606213601717" duration="205000" />
       <workItem from="1606564835033" duration="4332000" />
-      <workItem from="1606635217765" duration="10741000" />
+      <workItem from="1606635217765" duration="13769000" />
     </task>
     <servers />
   </component>
@@ -217,5 +217,9 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1606213813192" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1606651031521">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/-1366.186.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1606651031521" />
   </component>
 </project>
