@@ -20,18 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5860a1df-122e-45be-b2f2-765ea81f07d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/menu/ayamserundeng.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/menu/esbuah.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/menu/gadogado.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/menu/matasapi.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/menu/milkshake.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/menu/nasigoreng.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/menu/salmon.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/MenuController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_121319_create_menus_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_121319_create_menus_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_132255_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_132255_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +178,7 @@
       <workItem from="1606115037032" duration="4541000" />
       <workItem from="1606213601717" duration="205000" />
       <workItem from="1606564835033" duration="4332000" />
-      <workItem from="1606635217765" duration="13769000" />
+      <workItem from="1606635217765" duration="14080000" />
     </task>
     <servers />
   </component>

@@ -14,11 +14,22 @@ class MenuController extends Controller
     public function index(){
         try{
             $menu = Menu::all();
+            $host = request()->getHttpHost();
+            $result = [];
 
+            foreach ($menu as $item){
+                array_push($result,[
+                    'id'=>$item->id,
+                    'name'=>$item->name,
+                    'image'=>$host.'/images/menu/'.$item->image,
+                    'type'=>$item->type,
+                    'price'=>$item->price
+                    ]);
+            }
             return response()->json([
                 'status' => true,
                 'message' => 'Data Found',
-                'menu' => $menu
+                'menu' => $result
             ]);
         }catch (QueryException $e){
             return response()->json([
