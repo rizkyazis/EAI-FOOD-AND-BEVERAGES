@@ -16,6 +16,7 @@ class CreateMenusTable extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->enum('type',['food','drink']);
             $table->text('description');
             $table->double('price');
             $table->unsignedBigInteger('category_id');

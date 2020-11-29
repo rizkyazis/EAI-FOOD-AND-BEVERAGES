@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    protected $fillable =[
+        'name'
+    ];
+
+    public function menu(){
+        return $this->hasMany('App\Models\ChefRole');
+    }
 }

@@ -16,15 +16,14 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('transaction_code');
+            $table->string('name');
             $table->unsignedBigInteger('menu_id');
             $table->integer('quantity');
-            $table->unsignedBigInteger('chef_id');
-            $table->unsignedBigInteger('waiter_id');
+            $table->unsignedBigInteger('chef_id')->nullable();
+            $table->unsignedBigInteger('waiter_id')->nullable();
             $table->timestamps();
 
             $table->foreign('menu_id')->on('menus')->references('id');
-            $table->foreign('chef_id')->on('chefs')->references('id');
-            $table->foreign('waiter_id')->on('waiters')->references('id');
         });
     }
 
