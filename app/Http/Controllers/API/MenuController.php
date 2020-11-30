@@ -12,27 +12,28 @@ use Illuminate\Support\Facades\Validator;
 
 class MenuController extends Controller
 {
-    public function index(){
-        try{
+    public function index()
+    {
+        try {
             $menu = Menu::all();
             $host = request()->getHttpHost();
             $result = [];
 
-            foreach ($menu as $item){
-                array_push($result,[
-                    'id'=>$item->id,
-                    'name'=>$item->name,
-                    'image'=>$host.'/images/menu/'.$item->image,
-                    'type'=>$item->type,
-                    'price'=>$item->price
-                    ]);
+            foreach ($menu as $item) {
+                array_push($result, [
+                    'id' => $item->id,
+                    'name' => $item->name,
+                    'image' => $host . '/images/menu/' . $item->image,
+                    'type' => $item->type,
+                    'price' => $item->price
+                ]);
             }
             return response()->json([
                 'status' => true,
                 'message' => 'Data Found',
                 'menu' => $result
             ]);
-        }catch (QueryException $e){
+        } catch (QueryException $e) {
             return response()->json([
                 'status' => false,
                 'message' => $e->getMessage(),
@@ -41,11 +42,12 @@ class MenuController extends Controller
         }
     }
 
-    public function detail($id){
-        try{
+    public function detail($id)
+    {
+        try {
             $menu = Menu::find($id);
             $host = request()->getHttpHost();
-            $menu->image = $host.'/images/menu/'.$menu->image;
+            $menu->image = $host . '/images/menu/' . $menu->image;
             $menu->ingredients = $menu->ingredients;
             $menu->category_id = Category::find($menu->category_id);
             return response()->json([
@@ -53,7 +55,7 @@ class MenuController extends Controller
                 'message' => 'Data Found',
                 'menu' => [$menu]
             ]);
-        }catch (QueryException $e){
+        } catch (QueryException $e) {
             return response()->json([
                 'status' => false,
                 'message' => $e->getMessage(),
@@ -62,15 +64,16 @@ class MenuController extends Controller
         }
     }
 
-    public function menuByCategory($id){
-        try{
-            $menu = Menu::where('category_id',$id)->get();
+    public function menuByCategory($id)
+    {
+        try {
+            $menu = Menu::where('category_id', $id)->get();
             return response()->json([
                 'status' => true,
                 'message' => 'Data Found',
                 'menu' => [$menu]
             ]);
-        }catch (QueryException $e){
+        } catch (QueryException $e) {
             return response()->json([
                 'status' => false,
                 'message' => $e->getMessage(),
@@ -79,17 +82,28 @@ class MenuController extends Controller
         }
     }
 
-    public function create(Request $request){
+    public function create(Request $request)
+    {
         $rules = [
             'name' => 'required|unique:menus|max:150',
-            'description' => 'required|',
-            'price'=>'',
-            'image'=>'',
-            'category_id'
+            'description' => 'required',
+            'price' => 'required|number',
+            'image' => 'required|mimes:png,jpeg,jpg|max:2048',
+            'category_id' => 'required|number'
         ];
 
         $message = [
-            'id.required' => 'Id not selected',
+            'name.required' => 'Category cannot be empty',
+            'name.unique' => 'Category already exist',
+            'name.max' => 'Category cannot be more than :max character',
+            'description.required' => 'Description cannot be empty',
+            'price.required' => 'Price cannot be empty',
+            'price.number' => 'Price format should be in number',
+            'image.required' => 'Image cannot be empty',
+            'image.mimes' => 'Image format should be png, jpeg, jpg',
+            'image.max' => 'Max image size 2MB',
+            'category_id.required' => 'Category id cannot be empty',
+            'category_id.number' => 'Category should be in number',
         ];
 
         $validator = Validator::make($request->all(), $rules, $message);
@@ -106,7 +120,7 @@ class MenuController extends Controller
         if ($category->delete()) {
             return response()->json([
                 'status' => true,
-                'message' => 'Success delete category ' .$name
+                'message' => 'Success delete category ' . $name
             ]);
         }
 

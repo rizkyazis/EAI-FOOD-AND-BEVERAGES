@@ -14,10 +14,21 @@ class CategoryController extends Controller
     {
         try {
             $category = Category::all();
+            $host = request()->getHttpHost();
+            $result = [];
+
+            foreach ($category as $item) {
+                array_push($result, [
+                    'id' => $item->id,
+                    'name' => $item->name,
+                    'image' => $host.'/images/category/' . $item->image
+                ]);
+            }
+
             return response()->json([
                 'status' => true,
                 'message' => 'Data Found',
-                'category' => $category
+                'category' => $result
             ]);
         } catch (QueryException $e) {
             return response()->json([
@@ -32,6 +43,8 @@ class CategoryController extends Controller
     {
         try {
             $category = Category::find($id);
+            $host = request()->getHttpHost();
+            $category->image = $host . '/images/category/' . $category->image;
             return response()->json([
                 'status' => true,
                 'message' => 'Data Found',
@@ -49,13 +62,17 @@ class CategoryController extends Controller
     public function create(Request $request)
     {
         $rules = [
-            'name' => 'required|unique:categories|max:150'
+            'name' => 'required|unique:categories|max:150',
+            'image' => 'required|mimes:png,jpeg,jpg|max:2048',
         ];
 
         $message = [
             'name.required' => 'Category cannot be empty',
             'name.unique' => 'Category already exist',
-            'name.max' => 'Category cannot be more than :max character'
+            'name.max' => 'Category cannot be more than :max character',
+            'image.required' => 'Image cannot be empty',
+            'image.mimes' => 'Image format should be png, jpeg, jpg',
+            'image.max' => 'Max image size 2MB',
         ];
 
         $validator = Validator::make($request->all(), $rules, $message);
@@ -121,13 +138,17 @@ class CategoryController extends Controller
     public function update(Request $request,$id)
     {
         $rules = [
-            'name' => 'required|unique:categories|max:150'
+            'name' => 'required|unique:categories|max:150',
+            'image' => 'required|mimes:png,jpeg,jpg|max:2048',
         ];
 
         $message = [
             'name.required' => 'Category cannot be empty',
             'name.unique' => 'Category already exist',
-            'name.max' => 'Category cannot be more than :max character'
+            'name.max' => 'Category cannot be more than :max character',
+            'image.required' => 'Image cannot be empty',
+            'image.mimes' => 'Image format should be png, jpeg, jpg',
+            'image.max' => 'Max image size 2MB',
         ];
 
         $validator = Validator::make($request->all(), $rules, $message);
