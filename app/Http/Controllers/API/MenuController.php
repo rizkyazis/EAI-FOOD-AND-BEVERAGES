@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Validator;
 
 class MenuController extends Controller
 {
+    //fungsi buat render view
+    public function show(){
+        //ngambil menu dari database
+        $menu = Menu::all();
+        //kirim data menu ke file viewnya
+        return view('menu', ['menu' => $menu]);// Buat manggil view
+    }
+
     public function index()
     {
         try {
