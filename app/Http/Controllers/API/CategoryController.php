@@ -84,8 +84,12 @@ class CategoryController extends Controller
             ]);
         }
 
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images/category'), $imageName);
+
         $category = new Category();
         $category->name = $request->name;
+        $category->image = $imageName;
 
         if ($category->save()) {
             return response()->json([
@@ -100,26 +104,9 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function delete(Request $request)
+    public function delete($id)
     {
-        $rules = [
-            'id' => 'required'
-        ];
-
-        $message = [
-            'id.required' => 'Id not selected',
-        ];
-
-        $validator = Validator::make($request->all(), $rules, $message);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => false,
-                'message' => $validator->errors()
-            ]);
-        }
-
-        $category = Category::find($request->id);
+        $category = Category::find($id);
         $name = $category->name;
         if ($category->delete()) {
             return response()->json([
@@ -138,8 +125,8 @@ class CategoryController extends Controller
     public function update(Request $request,$id)
     {
         $rules = [
-            'name' => 'required|unique:categories|max:150',
-            'image' => 'required|mimes:png,jpeg,jpg|max:2048',
+            'name' => 'required|max:150',
+            'image' => 'mimes:png,jpeg,jpg|max:2048',
         ];
 
         $message = [
@@ -162,6 +149,14 @@ class CategoryController extends Controller
 
         $category = Category::find($id);
         $category->name = $request->name;
+
+        if($request->image != ''){
+
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images/category'), $imageName);
+            $category->image = $imageName;
+
+        }
 
         if ($category->save()) {
             return response()->json([
