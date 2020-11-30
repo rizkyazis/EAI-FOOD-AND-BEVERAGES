@@ -16,7 +16,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $category = ['Vegetables','Fruits','Grains, legumes, nuts and seeds','Meat and poultry','Fish and seafood','Dairy foods','Eggs'];
+        $category = ['Vegetables',
+            'Fruits',
+            'Grains, legumes, nuts and seeds',
+            'Meat and poultry',
+            'Fish and seafood',
+            'Dairy foods',
+            'Eggs'];
+
+        $imgCategory = ['vegetables.jpg',
+            'fruits.jpg',
+            'seeds.jpg',
+            'meats.jpg',
+            'seafood.jpeg',
+            'dairy.jpeg',
+            'eggs.jpg'];
 
         $menu = ['Gado-gado',
             'The "Es buah"',
@@ -55,6 +69,7 @@ class DatabaseSeeder extends Seeder
         for($i = 0;$i<count($category);$i++){
             $input = new Category();
             $input->name = $category[$i];
+            $input->image = $imgCategory[$i];
             $input->save();
         }
 
