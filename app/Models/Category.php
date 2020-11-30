@@ -9,11 +9,13 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $table = 'categories';
+
     protected $fillable =[
         'name'
     ];
 
     public function menu(){
-        return $this->hasMany('App\Models\ChefRole');
+        return $this->hasMany('App\Models\Menu');
     }
 }

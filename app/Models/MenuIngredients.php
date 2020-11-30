@@ -9,6 +9,8 @@ class MenuIngredients extends Model
 {
     use HasFactory;
 
+    protected $table = 'menu_ingredients';
+
     protected $fillable =[
         'name','menu_id','ingredient_id','quantity'
 
