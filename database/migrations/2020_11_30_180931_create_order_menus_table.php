@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMenuIngredientsTable extends Migration
+class CreateOrderMenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateMenuIngredientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('menu_ingredients', function (Blueprint $table) {
+        Schema::create('order_menus', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('menu_id');
-            $table->unsignedBigInteger('ingredient_id');
             $table->integer('quantity');
+            $table->enum('status',['Waiting','Finish'])->default('Waiting');
+            $table->unsignedBigInteger('chef_id')->nullable();
             $table->timestamps();
 
+            $table->foreign('order_id')->on('orders')->references('id')->onDelete('cascade');
             $table->foreign('menu_id')->on('menus')->references('id')->onDelete('cascade');
         });
     }
@@ -31,6 +34,6 @@ class CreateMenuIngredientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menu_ingredients');
+        Schema::dropIfExists('order_menus');
     }
 }

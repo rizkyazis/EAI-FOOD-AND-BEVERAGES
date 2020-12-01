@@ -23,7 +23,7 @@ class CreateMenusTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->timestamps();
 
-            $table->foreign('category_id')->on('categories')->references('id');
+            $table->foreign('category_id')->on('categories')->references('id')->onDelete('cascade');
         });
     }
 

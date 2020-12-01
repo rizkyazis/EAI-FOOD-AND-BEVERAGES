@@ -25,10 +25,13 @@ Route::get('/menu',[MenuController::class,'index'])->name('menu.index');
 Route::get('/menu/{id}',[MenuController::class,'detail'])->name('menu.detail');
 Route::get('/menu/category/{id}',[MenuController::class,'menuByCategory'])->name('menu.by.category');
 Route::post('/menu/create',[MenuController::class,'create'])->name('menu.create');
+Route::post('/menu/delete/{id}',[MenuController::class,'delete'])->name('menu.delete');
+Route::post('/menu/update/{id}',[MenuController::class,'update'])->name('menu.update');
+
 
 //Category
 Route::get('/category',[CategoryController::class,'index'])->name('category.index');
 Route::get('/category/{id}',[CategoryController::class,'detail'])->name('category.detail');
 Route::post('/category/create',[CategoryController::class,'create'])->name('category.create');
-Route::post('/category/delete',[CategoryController::class,'delete'])->name('category.delete');
+Route::post('/category/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
 Route::post('/category/update/{id}',[CategoryController::class,'update'])->name('category.update');
