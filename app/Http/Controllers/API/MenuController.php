@@ -53,7 +53,7 @@ class MenuController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'Data Found',
-                'menu' => [$menu]
+                'menu' => $menu
             ]);
         } catch (QueryException $e) {
             return response()->json([
@@ -145,17 +145,11 @@ class MenuController extends Controller
             $ingredient->save();
         }
 
-
         return response()->json([
             'status' => true,
             'message' => 'Success create menu '.$request->name
         ]);
 
-
-        return response()->json([
-            'status' => false,
-            'message' => 'Failed create menu'
-        ]);
     }
 
     public function delete($id)
@@ -244,12 +238,6 @@ class MenuController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Success update menu '.$request->name
-        ]);
-
-
-        return response()->json([
-            'status' => false,
-            'message' => 'Success update menu'
         ]);
     }
 }

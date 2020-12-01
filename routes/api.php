@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\MenuController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,9 @@ Route::get('/category/{id}',[CategoryController::class,'detail'])->name('categor
 Route::post('/category/create',[CategoryController::class,'create'])->name('category.create');
 Route::post('/category/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
 Route::post('/category/update/{id}',[CategoryController::class,'update'])->name('category.update');
+
+
+//Order
+Route::get('/order',[OrderController::class,'index'])->name('order.index');
+Route::get('/order/{id}',[OrderController::class,'detail'])->name('order.detail');
+Route::post('/order/create',[OrderController::class,'order'])->name('order.create');

@@ -15,4 +15,8 @@ class Order extends Model
         'customer_id','waiter_id','status'
     ];
 
+    public function menu(){
+        return $this->hasMany('App\Models\OrderMenu');
+    }
+
 }

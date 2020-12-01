@@ -12,7 +12,7 @@ class OrderMenu extends Model
     protected $table = 'order_menus';
 
     protected $fillable = [
-        'order_id', 'menu_id', 'status', 'chef_id'
+        'order_id', 'menu_id','quantity', 'status', 'chef_id'
     ];
 
     public function menu(){
