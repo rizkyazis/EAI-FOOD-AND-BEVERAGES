@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('waiter_id');
-            $table->enum('status',['Not Paid','Paid'])->default('Not Paid');
+            $table->enum('status',['Waiting','Finish'])->default('Waiting');
             $table->timestamps();
         });
     }
