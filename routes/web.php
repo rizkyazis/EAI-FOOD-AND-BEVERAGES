@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\MenuController;
 
@@ -20,3 +21,7 @@ Route::get('/', function () {
 
 Route::get('/menu',[MenuController::class,'index'])->name('menu.welcome');
 Route::get('/detail/{id}/',[MenuController::class,'detail'])->name('menu.detail');
+//Route::get('',[CategoryController::class,'']);
+Route::get('/details/category', function () {
+    return view('details.category');
+});

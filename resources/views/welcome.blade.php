@@ -22,11 +22,10 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{'/style/assets/img/portfolio/01-thumbnail.jpg'}}" alt="" />
+                        <img class="img-fluid" src="{{'/images/category/vegetables.jpg'}}" alt="" />
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Threads</div>
-                        <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                        <div class="portfolio-caption-heading">Vegetables</div>
                     </div>
                 </div>
             </div>
@@ -36,11 +35,10 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{'/style/assets/img/portfolio/02-thumbnail.jpg'}}" alt="" />
+                        <img class="img-fluid" src="{{'/images/category/fruits.jpg'}}" alt="" />
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Explore</div>
-                        <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                        <div class="portfolio-caption-heading">Fruits</div>
                     </div>
                 </div>
             </div>
@@ -50,11 +48,10 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{'/style/assets/img/portfolio/03-thumbnail.jpg'}}" alt="" />
+                        <img class="img-fluid" src="{{'/images/category/seeds.jpg'}}" alt="" />
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Finish</div>
-                        <div class="portfolio-caption-subheading text-muted">Identity</div>
+                        <div class="portfolio-caption-heading">Grains, legumes, nuts and seeds</div>
                     </div>
                 </div>
             </div>
@@ -64,11 +61,10 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{'/style/assets/img/portfolio/04-thumbnail.jpg'}}" alt="" />
+                        <img class="img-fluid" src="{{'/images/category/meats.jpg'}}" alt="" />
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Lines</div>
-                        <div class="portfolio-caption-subheading text-muted">Branding</div>
+                        <div class="portfolio-caption-heading">Meat and poultry</div>
                     </div>
                 </div>
             </div>
@@ -78,11 +74,10 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{'/style/assets/img/portfolio/05-thumbnail.jpg'}}" alt="" />
+                        <img class="img-fluid" src="{{'/images/category/seafood.jpeg'}}" alt="" />
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Southwest</div>
-                        <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                        <div class="portfolio-caption-heading">Fish and seafood</div>
                     </div>
                 </div>
             </div>
@@ -92,11 +87,10 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{'/style/assets/img/portfolio/06-thumbnail.jpg'}}" alt="" />
+                        <img class="img-fluid" src="{{'/images/category/dairy.jpeg'}}" alt="" />
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Window</div>
-                        <div class="portfolio-caption-subheading text-muted">Photography</div>
+                        <div class="portfolio-caption-heading">Dairy foods</div>
                     </div>
                 </div>
             </div>
@@ -106,11 +100,10 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="{{'/style/assets/img/portfolio/01-thumbnail.jpg'}}" alt="" />
+                        <img class="img-fluid" src="{{'/images/category/eggs.jpg'}}" alt="" />
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Window</div>
-                        <div class="portfolio-caption-subheading text-muted">Photography</div>
+                        <div class="portfolio-caption-heading">Eggs</div>
                     </div>
                 </div>
             </div>
