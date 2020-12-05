@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\MenuController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\OrderController;
+use App\Http\Controllers\API\ReportController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,5 +41,20 @@ Route::post('/category/update/{id}',[CategoryController::class,'update'])->name(
 
 //Order
 Route::get('/order',[OrderController::class,'index'])->name('order.index');
-Route::get('/order/{id}',[OrderController::class,'detail'])->name('order.detail');
+Route::get('/order/detail/{id}',[OrderController::class,'detail'])->name('order.detail');
+Route::get('/order/waiting',[OrderController::class,'orderWaiting'])->name('order.waiting');
+Route::get('/order/finished',[OrderController::class,'orderFinished'])->name('order.finished');
 Route::post('/order/create',[OrderController::class,'order'])->name('order.create');
+Route::post('/order/menu/finish/{id}',[OrderController::class,'finishMenu'])->name('order.finish.menu');
+Route::post('/order/delete/{id}',[OrderController::class,'deleteOrder'])->name('order.delete');
+Route::post('/order/delete/menu/{id}',[OrderController::class,'deleteMenuOrder'])->name('order.menu.delete');
+
+//Report
+Route::get('/report/employee',[ReportController::class,'reportEmployee'])->name('report.employee');
+Route::get('/report/employee/detail/{id}',[ReportController::class,'reportEmployeeById'])->name('report.employee.id');
+Route::get('/report/employee/detail/{id}/date',[ReportController::class,'reportEmployeebyIdBetweenDate'])->name('report.employee.id.date.between');
+Route::get('/report/employee/date',[ReportController::class,'reportEmployeeBetweenDate'])->name('report.employee.date.between');
+Route::get('/report/income',[ReportController::class,'reportIncome'])->name('report.income');
+Route::get('/report/income/detail/{id}',[ReportController::class,'reportIncomeByIdOrder'])->name('report.income.id');
+Route::get('/report/income/date',[ReportController::class,'reportIncomeBetweenDate'])->name('report.income.date.between');
+Route::get('/report/income/date/detail',[ReportController::class,'reportIncomeDate'])->name('report.income.date');
