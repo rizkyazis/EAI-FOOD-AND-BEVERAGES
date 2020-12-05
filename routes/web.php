@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/menu',[MenuController::class,'index'])->name('menu.welcome');
+Route::get('/detail/{id}/',[MenuController::class,'detail'])->name('detail.welcome');
