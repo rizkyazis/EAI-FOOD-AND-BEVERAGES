@@ -1,0 +1,1 @@
+web: vendor/bim/heroku-php-apache2 public/
