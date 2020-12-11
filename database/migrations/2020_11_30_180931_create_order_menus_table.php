@@ -19,7 +19,7 @@ class CreateOrderMenusTable extends Migration
             $table->unsignedBigInteger('menu_id');
             $table->integer('quantity');
             $table->enum('status',['Waiting','Finish'])->default('Waiting');
-            $table->unsignedBigInteger('chef_id')->nullable();
+            $table->string('chef_nik')->nullable();
             $table->timestamps();
 
             $table->foreign('order_id')->on('orders')->references('id')->onDelete('cascade');

@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Validator;
 
 class MenuController extends Controller
 {
+    //fungsi buat render view
+    public function show(){
+        //ngambil menu dari database
+        $menu = Menu::all();
+        //kirim data menu ke file viewnya
+        return view('menu', ['menu' => $menu]);// Buat manggil view
+    }
+
     public function index()
     {
         try {
@@ -91,7 +99,7 @@ class MenuController extends Controller
             'type' => 'required',
             'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'category_id' => 'required|numeric',
-            'ingredient_id.*' => 'required|numeric',
+            'ingredient_id.*' => 'required',
             'quantity.*'=> 'required|numeric',
         ];
 
@@ -110,7 +118,6 @@ class MenuController extends Controller
             'category_id.required' => 'Category id cannot be empty',
             'category_id.numeric'=> 'Category ID format should be numeric',
             'ingredient_id.required'=> 'Ingredient cannot be empty',
-            'ingredient_id.numeric'=> 'Ingredient ID format should be numeric',
             'quantity.required'=> 'Quantity cannot be empty',
             'quantity.numeric'=> 'Quantity format should be numeric',
         ];
@@ -179,7 +186,7 @@ class MenuController extends Controller
             'type' => 'required',
             'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'category_id' => 'required|numeric',
-            'ingredient_id.*' => 'required|numeric',
+            'ingredient_id.*' => 'required',
             'quantity.*'=> 'required|numeric',
         ];
 
@@ -196,7 +203,6 @@ class MenuController extends Controller
             'category_id.required' => 'Category id cannot be empty',
             'category_id.numeric'=> 'Category ID format should be numeric',
             'ingredient_id.required'=> 'Ingredient cannot be empty',
-            'ingredient_id.numeric'=> 'Ingredient ID format should be numeric',
             'quantity.required'=> 'Quantity cannot be empty',
             'quantity.numeric'=> 'Quantity format should be numeric',
         ];

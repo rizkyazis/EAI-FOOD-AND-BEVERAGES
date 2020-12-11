@@ -16,7 +16,7 @@ class CreateMenuIngredientsTable extends Migration
         Schema::create('menu_ingredients', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('menu_id');
-            $table->unsignedBigInteger('ingredient_id');
+            $table->string('ingredient_id');
             $table->integer('quantity');
             $table->timestamps();
 

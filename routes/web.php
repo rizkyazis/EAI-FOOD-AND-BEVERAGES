@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('/admin')->group(function (){
+    Route::view('/menu/add','/admin/menu-add')->name('admin.menu.add');
+});
+
+Route::get('/menu',[MenuController::class,'show'])->name('menu.welcome');
