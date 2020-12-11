@@ -18,8 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/menu',[MenuController::class,'index'])->name('menu.welcome');
+Route::get('/detail/{id}/',[MenuController::class,'detail'])->name('menu.detail');
+//Route::get('',[CategoryController::class,'']);
+Route::get('/details/category', function () {
+    return view('details.category');
+});
 Route::prefix('/admin')->group(function (){
     Route::view('/menu/add','/admin/menu-add')->name('admin.menu.add');
 });
 
-Route::get('/menu',[MenuController::class,'show'])->name('menu.welcome');
