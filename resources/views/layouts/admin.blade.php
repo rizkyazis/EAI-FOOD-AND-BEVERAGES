@@ -44,7 +44,24 @@
         </div>
     </div>
 </nav>
-
+@if(session()->has('success'))
+    <div class="container mt-2 mb-5">
+        <div class="alert alert-success w-25 float-right" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+            {{session()->get('success')}}
+        </div>
+    </div>
+@endif
+@if(session()->has('error'))
+    <div class="container  mt-2 mb-5">
+        <div class="alert alert-danger w-25 float-right " role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+            {{session()->get('error')}}
+        </div>
+    </div>
+@endif
 @yield('content')
 <!-- Optional JavaScript; choose one of the two! -->
 
