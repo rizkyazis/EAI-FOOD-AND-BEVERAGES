@@ -15,8 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('customer_id');
-            $table->string('waiter_nik');
+            $table->string('customer_id');
+            $table->string('waiter_id');
             $table->enum('status',['Waiting','Finish'])->default('Waiting');
             $table->timestamps();
         });

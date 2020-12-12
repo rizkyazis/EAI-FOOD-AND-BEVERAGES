@@ -73,28 +73,28 @@ class DatabaseSeeder extends Seeder
             $input->save();
         }
 
-        for($i = 0;$i<count($menu);$i++){
-            $input = new Menu();
-            $input->name = $menu[$i];
-            $input->type = $type[$i];
-            $input->image = $image[$i];
-            $input->description = $description[$i];
-            $input->price = $price[$i];
-            $input->category_id = $i+1;
-            $input->save();
-        }
-
-        $ingredient = [1,4,6,15,3];
-        $quantity = [30,24,54,23,1];
-
-        for($i = 0;$i<count($menu);$i++){
-            for($u = 0;$u<count($ingredient);$u++){
-                $input = new MenuIngredients();
-                $input->menu_id = $i+1;
-                $input->ingredient_id = $ingredient[$u];
-                $input->quantity = $quantity[$u];
-                $input->save();
-            }
-        }
+//        for($i = 0;$i<count($menu);$i++){
+//            $input = new Menu();
+//            $input->name = $menu[$i];
+//            $input->type = $type[$i];
+//            $input->image = $image[$i];
+//            $input->description = $description[$i];
+//            $input->price = $price[$i];
+//            $input->category_id = $i+1;
+//            $input->save();
+//        }
+//
+//        $ingredient = [1,4,6,15,3];
+//        $quantity = [30,24,54,23,1];
+//
+//        for($i = 0;$i<count($menu);$i++){
+//            for($u = 0;$u<count($ingredient);$u++){
+//                $input = new MenuIngredients();
+//                $input->menu_id = $i+1;
+//                $input->ingredient_id = $ingredient[$u];
+//                $input->quantity = $quantity[$u];
+//                $input->save();
+//            }
+//        }
     }
 }

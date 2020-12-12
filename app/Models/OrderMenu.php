@@ -16,7 +16,7 @@ class OrderMenu extends Model
     ];
 
     public function menu(){
-        return $this->hasMany('App\Models\Menu');
+        return $this->belongsTo('App\Models\Menu');
     }
 
     public function order(){

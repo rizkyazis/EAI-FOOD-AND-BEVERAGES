@@ -18,24 +18,24 @@ class ReportController extends Controller
         try {
             $order = Order::all();
             $orderMenu = OrderMenu::where('status', 'Finish')->get();
-            $waiter_nik = [];
-            $chef_nik = [];
+            $waiter_id = [];
+            $chef_id = [];
             $result = [];
 
             foreach ($order as $item) {
-                if (!(in_array($item->waiter_nik, $waiter_nik))) {
-                    array_push($waiter_nik, $item->waiter_nik);
+                if (!(in_array($item->waiter_id, $waiter_id))) {
+                    array_push($waiter_id, $item->waiter_id);
                 }
             }
 
             foreach ($orderMenu as $item) {
-                if (!(in_array($item->chef_nik, $chef_nik))) {
-                    array_push($chef_nik, $item->chef_nik);
+                if (!(in_array($item->chef_id, $chef_id))) {
+                    array_push($chef_id, $item->chef_id);
                 }
             }
 
-            for ($i = 0; $i < count($waiter_nik); $i++) {
-                $waiter = Order::where('waiter_nik', $waiter_nik[$i])->get();
+            for ($i = 0; $i < count($waiter_id); $i++) {
+                $waiter = Order::where('waiter_id', $waiter_id[$i])->get();
                 $dates = [];
                 $attendance = 0;
                 foreach ($waiter as $item) {
@@ -46,7 +46,7 @@ class ReportController extends Controller
                     }
                 }
                 array_push($result, [
-                    'employee_id' => $waiter_nik[$i],
+                    'employee_id' => $waiter_id[$i],
                     'role' => 'waiter',
                     'work' => count($waiter),
                     'attendance' => $attendance,
@@ -54,8 +54,8 @@ class ReportController extends Controller
                 ]);
             }
 
-            for ($i = 0; $i < count($chef_nik); $i++) {
-                $chef = OrderMenu::where('status', 'Finish')->where('chef_nik', $chef_nik[$i])->get();
+            for ($i = 0; $i < count($chef_id); $i++) {
+                $chef = OrderMenu::where('status', 'Finish')->where('chef_id', $chef_id[$i])->get();
                 $dates = [];
                 $attendance = 0;
                 foreach ($chef as $item) {
@@ -66,7 +66,7 @@ class ReportController extends Controller
                     }
                 }
                 array_push($result, [
-                    'employee_id' => $waiter_nik[$i],
+                    'employee_id' => $waiter_id[$i],
                     'role' => 'chef',
                     'work' => count($chef),
                     'attendance' => $attendance,
@@ -91,8 +91,8 @@ class ReportController extends Controller
     public function reportEmployeeById($id)
     {
         try {
-            $order_waiter = Order::where('status', 'Finish')->where('waiter_nik', $id)->get();
-            $order_chef = OrderMenu::where('status', 'Finish')->where('chef_nik', $id)->get();
+            $order_waiter = Order::where('status', 'Finish')->where('waiter_id', $id)->get();
+            $order_chef = OrderMenu::where('status', 'Finish')->where('chef_id', $id)->get();
             $result = [];
             $dates = [];
             $attendance = 0;
@@ -158,25 +158,26 @@ class ReportController extends Controller
 
             $order = Order::whereBetween('created_at', [$from, $to])->get();
             $orderMenu = OrderMenu::where('status', 'Finish')->whereBetween('created_at', [$from, $to])->get();
-            $waiter_nik = [];
-            $chef_nik = [];
+            $waiter_id = [];
+            $chef_id = [];
             $result = [];
 
             foreach ($order as $item) {
-                if (!(in_array($item->waiter_nik, $waiter_nik))) {
-                    array_push($waiter_nik, $item->waiter_nik);
+                if (!(in_array($item->waiter_id, $waiter_id))) {
+                    array_push($waiter_id, $item->waiter_id);
                 }
             }
 
             foreach ($orderMenu as $item) {
-                if (!(in_array($item->chef_nik, $chef_nik))) {
-                    array_push($chef_nik, $item->chef_nik);
+                if (!(in_array($item->chef_id, $chef_id))) {
+                    array_push($chef_id, $item->chef_id);
                 }
             }
 
-            for ($i = 0; $i < count($waiter_nik); $i++) {
-                $waiter = Order::where('waiter_nik', $waiter_nik[$i])->whereBetween('created_at', [$from, $to])->get();
+            for ($i = 0; $i < count($waiter_id); $i++) {
+                $waiter = Order::where('waiter_id', $waiter_id[$i])->whereBetween('created_at', [$from, $to])->get();
                 $dates = [];
+                $attendance = 0;
                 $attendance = 0;
                 foreach ($waiter as $item) {
                     $date = $item->created_at->format('d/m/Y');
@@ -186,7 +187,7 @@ class ReportController extends Controller
                     }
                 }
                 array_push($result, [
-                    'employee_id' => $waiter_nik[$i],
+                    'employee_id' => $waiter_id[$i],
                     'role' => 'waiter',
                     'work' => count($waiter),
                     'attendance' => $attendance,
@@ -195,8 +196,8 @@ class ReportController extends Controller
                 ]);
             }
 
-            for ($i = 0; $i < count($chef_nik); $i++) {
-                $chef = OrderMenu::where('status', 'Finish')->where('chef_nik', $chef_nik[$i])->whereBetween('created_at', [$from, $to])->get();
+            for ($i = 0; $i < count($chef_id); $i++) {
+                $chef = OrderMenu::where('status', 'Finish')->where('chef_id', $chef_id[$i])->whereBetween('created_at', [$from, $to])->get();
                 $dates = [];
                 $attendance = 0;
                 foreach ($chef as $item) {
@@ -207,7 +208,7 @@ class ReportController extends Controller
                     }
                 }
                 array_push($result, [
-                    'employee_id' => $waiter_nik[$i],
+                    'employee_id' => $waiter_id[$i],
                     'role' => 'chef',
                     'work' => count($chef),
                     'attendance' => $attendance,
@@ -235,8 +236,8 @@ class ReportController extends Controller
             $from = $request->from . ' 00:00:00';
             $to = $request->to . ' 23:59:59';
             $diffDate = date_diff((date_create($request->from)), (date_create($request->to)));
-            $order_waiter = Order::where('status', 'Finish')->where('waiter_nik', $id)->whereBetween('updated_at', [$from, $to])->get();
-            $order_chef = OrderMenu::where('status', 'Finish')->where('chef_nik', $id)->whereBetween('updated_at', [$from, $to])->get();
+            $order_waiter = Order::where('status', 'Finish')->where('waiter_id', $id)->whereBetween('updated_at', [$from, $to])->get();
+            $order_chef = OrderMenu::where('status', 'Finish')->where('chef_id', $id)->whereBetween('updated_at', [$from, $to])->get();
             $result = [];
             $dates = [];
             $attendance = 0;

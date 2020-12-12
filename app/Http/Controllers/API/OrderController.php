@@ -4,10 +4,12 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
+use App\Models\MenuIngredients;
 use App\Models\Order;
 use App\Models\OrderMenu;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
@@ -25,7 +27,7 @@ class OrderController extends Controller
                     $orderMenu = [
                         'id' => $menuItem->id,
                         'order_id' => $menuItem->order_id,
-                        'chef_nik'=>$menuItem->chef_nik,
+                        'chef_id'=>$menuItem->chef_id,
                         'quantity' => $menuItem->quantity,
                         'status'=> $menuItem->status,
                         'menu' => $detail,];
@@ -35,7 +37,7 @@ class OrderController extends Controller
                 array_push($result, [
                     'id' => $item->id,
                     'customer_id' => $item->customer_id,
-                    'waiter_nik' => $item->waiter_nik,
+                    'waiter_id' => $item->waiter_id,
                     'status' => $item->status,
                     'menu' => $menu
                 ]);
@@ -76,7 +78,7 @@ class OrderController extends Controller
                 array_push($result, [
                     'id' => $item->id,
                     'customer_id' => $item->customer_id,
-                    'waiter_nik' => $item->waiter_nik,
+                    'waiter_id' => $item->waiter_id,
                     'status' => $item->status,
                     'menu' => $menu
                 ]);
@@ -108,7 +110,7 @@ class OrderController extends Controller
                     $orderMenu = [
                         'id' => $menuItem->id,
                         'order_id' => $menuItem->order_id,
-                        'chef_nik'=>$menuItem->chef_nik,
+                        'chef_id'=>$menuItem->chef_id,
                         'quantity' => $menuItem->quantity,
                         'status'=> $menuItem->status,
                         'menu' => $detail,];
@@ -118,7 +120,7 @@ class OrderController extends Controller
                 array_push($result, [
                     'id' => $item->id,
                     'customer_id' => $item->customer_id,
-                    'waiter_nik' => $item->waiter_nik,
+                    'waiter_id' => $item->waiter_id,
                     'status' => $item->status,
                     'menu' => $menu
                 ]);
@@ -156,7 +158,7 @@ class OrderController extends Controller
             $result = [
                 'id' => $item->id,
                 'customer_id' => $item->customer_id,
-                'waiter_nik' => $item->waiter_nik,
+                'waiter_id' => $item->waiter_id,
                 'status' => $item->status,
                 'menu' => $menu
             ];
@@ -177,19 +179,16 @@ class OrderController extends Controller
     public function order(Request $request)
     {
         $rules = [
-            'customer_id' => 'required|numeric',
-            'waiter_nik' => 'required|numeric',
-            'menu_id' => 'required|numeric',
+            'customer_id' => 'required',
+            'waiter_id' => 'required',
+            'menu_id' => 'required',
             'quantity' => 'required|numeric',
         ];
 
         $message = [
             'customer_id.required' => 'Customer id cannot be empty',
-            'customer_id.numeric' => 'Customer id format should be numeric',
-            'waiter_nik.required' => 'Waiter id cannot be empty',
-            'waiter_nik.numeric' => 'Waiter id format should be numeric',
+            'waiter_id.required' => 'Waiter id cannot be empty',
             'menu_id.required' => 'Menu id cannot be empty',
-            'menu_id.numeric' => 'Menu id format should be numeric',
             'quantity.required' => 'Quantity cannot be empty',
             'quantity.numeric' => 'Quantity format should be numeric',
         ];
@@ -203,12 +202,12 @@ class OrderController extends Controller
             ]);
         }
 
-        $order = Order::where('customer_id', $request->customer_id)->where('waiter_nik', $request->waiter_nik)->where('status', 'Waiting')->first();
+        $order = Order::where('customer_id', $request->customer_id)->where('waiter_id', $request->waiter_id)->where('status', 'Waiting')->first();
 
         if ($order == null) {
             $order = new Order();
             $order->customer_id = $request->customer_id;
-            $order->waiter_nik = $request->waiter_nik;
+            $order->waiter_id = $request->waiter_id;
             $order->save();
         }
 
@@ -218,6 +217,13 @@ class OrderController extends Controller
         $menu->quantity = $request->quantity;
         $menu->save();
 
+        $ingredient = MenuIngredients::where('menu_id',$request->menu_id)->get();
+        for ($i=0;$i<$request->quantity;$i++){
+            foreach ($ingredient as $item){
+                Http::put("http://localhost:8080/api/barang/bahan-makanan/$item->ingredient_id",['total_ambil'=>$item->quantity]);
+            }
+        }
+
         return response()->json([
             'status' => true,
             'message' => 'Success order '
@@ -226,12 +232,11 @@ class OrderController extends Controller
 
     public function finishMenu(Request $request, $id){
         $rules = [
-            'chef_nik' => 'required|numeric',
+            'chef_id' => 'required',
         ];
 
         $message = [
-            'chef_nik.required' => 'Chef id cannot be empty',
-            'chef_nik.numeric' => 'Chef id format should be numeric',
+            'chef_id.required' => 'Chef id cannot be empty',
         ];
 
         $validator = Validator::make($request->all(), $rules, $message);
@@ -246,7 +251,7 @@ class OrderController extends Controller
         $orderMenu = OrderMenu::find($id);
         $orderMenu->status = 'Finish';
         $idOrder = $orderMenu->order_id;
-        $orderMenu->chef_nik = $request->chef_nik;
+        $orderMenu->chef_id = $request->chef_id;
         $orderMenu->save();
 
         $order = Order::find($idOrder);
