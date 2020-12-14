@@ -12,7 +12,7 @@
 <body>
 
 <div class="container mt-3" style="width:50%">
-  <h2>Order Menu</h2>
+  <h2 class="text-center display-4">Order Menu</h2>
   <form>
   <select name="cars" class="custom-select custom-select mb-3">
       <option selected>Choose Menu</option>
@@ -32,16 +32,12 @@
       <label for="inputCity">City</label>
       <input type="text" class="form-control" id="inputCity">
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-6">
       <label for="inputZip">Zip</label>
       <input type="text" class="form-control" id="inputZip">
     </div>
   </div>
-  <select name="cars" class="custom-select custom-select mb-3">
-      <option selected>Choose Menu</option>
-      <option value="Bubur Ayam">Bubur Ayam</option>
-      <option value="Ayam Geprek">Ayam Geprek</option>
-    </select>
+  
     <div class="form-row align-items-center">
     <div class="col-auto my-1">
       <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
@@ -53,9 +49,10 @@
       </select>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
+<div class="text-center">
+<button type="submit" class="btn btn-primary text-center col-8 my-4">Purchase</button>
 </div>
-
+</div>
 </body>
 </html>

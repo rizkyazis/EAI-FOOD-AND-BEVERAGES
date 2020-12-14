@@ -17,5 +17,8 @@ use App\Http\Controllers\API\MenuController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/form', function () {
+    return view('form');
+});
 
 Route::get('/menu',[MenuController::class,'index'])->name('menu.welcome');
