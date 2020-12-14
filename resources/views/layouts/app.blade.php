@@ -35,9 +35,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Category</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#order">Order</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Order</a></li>
             </ul>
         </div>
     </div>

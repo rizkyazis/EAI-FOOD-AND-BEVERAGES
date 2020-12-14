@@ -15,15 +15,10 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_code');
-            $table->unsignedBigInteger('customer_id');
-            $table->unsignedBigInteger('menu_id');
-            $table->integer('quantity');
-            $table->unsignedBigInteger('chef_id')->nullable();
-            $table->unsignedBigInteger('waiter_id')->nullable();
+            $table->string('customer_id');
+            $table->string('waiter_id');
+            $table->enum('status',['Waiting','Finish'])->default('Waiting');
             $table->timestamps();
-
-            $table->foreign('menu_id')->on('menus')->references('id');
         });
     }
 
